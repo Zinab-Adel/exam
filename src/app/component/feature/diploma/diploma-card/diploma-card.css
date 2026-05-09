@@ -1,0 +1,19 @@
+.glass-effect {
+  /* تأثير البلور */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* خلفية شفافة جزئياً */
+  background-color: rgba(255, 255, 255, 0.1); 
+  
+  /* حواف فاتحة لإبراز التأثير */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  
+  /* تدرج لوني أزرق خفيف في الأسفل (اختياري، ليناسب التصميم الأصلي) */
+  background-image: linear-gradient(to top, rgba(59, 130, 246, 0.4), rgba(255, 255, 255, 0));
+}
+
+/* تعديل الارتفاع عند التمرير للحصول على حركة سلسة */
+.glass-effect {
+  height: 6rem; /* الارتفاع الافتراضي (للعنوان فقط) */
+}

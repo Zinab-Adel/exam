@@ -1,0 +1,26 @@
+<div class="container mx-auto p-8 bg-gray-50 min-h-screen">
+  
+  <p-card class="mb-10 shadow-md">
+    <div class="bg-blue-600 text-white p-6 rounded-t-lg flex items-center">
+      <i class="pi pi-briefcase text-3xl mr-4"></i>
+      <h1 class="text-3xl font-bold">Diplomas</h1>
+    </div>
+  </p-card>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for (diploma of diplomas(); track diploma.title) {
+      <app-diploma-card [diploma]="diploma" />
+    } @empty {
+      <div class="col-span-full text-center py-10 text-gray-500">
+        No Dipolomas Now.
+      </div>
+    }
+  </div>
+
+  @if(hasMore()) {
+    <div class="text-center mt-12 text-gray-600 flex flex-col items-center cursor-pointer" (click)="getDiploma()">
+      <span>تصفح للمزيد</span>
+      <i class="pi pi-angle-down mt-2 animate-bounce"></i>
+    </div>
+  }
+</div>

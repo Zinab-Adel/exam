@@ -1,0 +1,23 @@
+<div [routerLink]="['/home/exam', diploma.id]" class="relative group overflow-hidden rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+  <!-- صورة الخلفية -->
+   
+  <img [src]="diploma.image" [alt]="diploma.title" class="w-full h-80 object-cover">
+
+  <!-- الشارة (اختياري، للدبلومات ذات المستوى المتقدم) -->
+  <!-- <div *ngIf="diploma.immutable" class="absolute top-4 right-4 bg-yellow-400 text-gray-900 font-bold rounded-full w-10 h-10 flex items-center justify-center text-sm shadow-md">
+    {{ diploma.badgeText }}
+  </div> -->
+
+  <!-- تراكب زجاجي (Glassmorphism Effect) -->
+  <!-- سنستخدم فئات Tailwind مخصصة أو PrimeNG لتأثير البلور -->
+  <div class="absolute inset-x-0 bottom-0 p-6 glass-effect group-hover:h-full group-hover:flex group-hover:flex-col group-hover:justify-center transition-all duration-500 ease-in-out">
+    
+    <!-- العنوان -->
+    <h3 class="text-xl font-semibold text-white mb-2">{{ diploma.title }}</h3>
+    
+    <!-- الوصف (يظهر عند التمرير) -->
+    <p class="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      {{ diploma.description }}
+    </p>
+  </div>
+</div>

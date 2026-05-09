@@ -1,0 +1,18 @@
+<p-breadcrumb 
+[model]="breadcrumbService.breadcrumbs()" 
+[style]="{'background-color': 'transparent', 'border': 'none', 'padding': '0'}">
+
+<ng-template pTemplate="item" let-item let-last="last">
+    @if (last) {
+        <span class="text-[#1E5EF3] font-bold">{{ item.label }}</span>
+    } @else {
+        <a [routerLink]="item.routerLink" class="text-slate-400 hover:text-slate-600 no-underline">
+            {{ item.label }}
+        </a>
+    }
+</ng-template>
+
+<ng-template pTemplate="separator">
+    <span class="text-slate-300 mx-2">/</span>
+</ng-template>
+</p-breadcrumb>

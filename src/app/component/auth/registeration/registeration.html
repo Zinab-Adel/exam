@@ -1,0 +1,42 @@
+<div>
+  <p-stepper [value]="activeStep()">
+
+    <p-step-list>
+      <p-step [value]="1">email verification</p-step>
+      <p-step [value]="2">otp</p-step>
+      <p-step [value]="3">user info</p-step>
+      <p-step [value]="4">confirm password</p-step>
+    </p-step-list>
+
+    <p-step-panels>
+
+      <p-step-panel [value]="1">000 
+        <ng-template #content let-activateCallback="activateCallback">
+          <app-email-verification (next)="nextStep()"></app-email-verification>
+        </ng-template>
+      </p-step-panel>
+
+      <!-- Step 2 -->
+      <p-step-panel [value]="2">0000
+        <ng-template #content let-activateCallback="activateCallback">
+            <app-otp (next)="nextStep()"></app-otp>
+        </ng-template>
+      </p-step-panel>
+
+      <!-- Step 3 -->
+      <p-step-panel [value]="3">0
+        <ng-template #content let-activateCallback="activateCallback">
+          <app-register (next)="nextStep()" (formData)="getRegisterObj($event)"></app-register>
+        </ng-template>
+      </p-step-panel>
+      
+      <p-step-panel [value]="4">000
+        <ng-template #content let-activateCallback="activateCallback">
+          <app-confirm-password [userData]="userData()"></app-confirm-password>
+        </ng-template>
+      </p-step-panel>
+
+    </p-step-panels>
+
+  </p-stepper>
+</div>

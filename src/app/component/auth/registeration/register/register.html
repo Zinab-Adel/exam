@@ -1,0 +1,54 @@
+<div class="registration-container" style="max-width: 500px; margin: auto; padding: 2rem;">
+  <h2 style="color: #1e293b; margin-bottom: 0.5rem;">Create Account</h2>
+  <h3 style="color: #2563eb; margin-top: 0; margin-bottom: 2rem;">Tell us more about you</h3>
+
+  <form (ngSubmit)="submit()">
+    
+    <div class="flex gap-3">
+      <div class="gap-2 flex-1">
+        <label htmlFor="firstname">First name<span class="text-red-500">*</span></label>
+        <input pInputText id="firstname" [formField]="registrationForm.firstName" placeholder="Ahmed" />
+      </div>
+      <div class="gap-2 flex-1">
+        <label htmlFor="lastname">Last name<span class="text-red-500">*</span></label>
+        <input pInputText id="lastname" [formField]="registrationForm.lastName" placeholder="Abdullah" />
+      </div>
+    </div>
+    <br>
+
+    <div class="w-full">
+      <label htmlFor="username">Username<span class="text-red-500">*</span></label>
+      <div>
+        <input class="w-full" pInputText id="username" [formField]="registrationForm.username" placeholder="user123" />
+      </div>
+    </div>
+
+    <div class="gap-2 flex-1">
+      <label htmlFor="phone">Phone</label>
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <img src="https://flagcdn.com/w20/eg.png" style="width: 20px; margin-right: 5px;">
+          <span>EG(+20)</span>
+        </p-inputGroupAddon>
+        <input pInputText [formField]="registrationForm.phone" placeholder="1012345678" (blur)="showPhoneError.set(true)" />
+      </p-inputGroup>
+    </div>
+  
+    @if(registrationModel().phone && !phoneValid() && showPhoneError()){
+      <small class="text-red-500">
+        Please enter a valid Egyptian phone number.
+      </small>
+    }
+
+    <p-button 
+      type="submit"
+      label="Next" 
+      icon="pi pi-chevron-right" 
+      iconPos="right" 
+      styleClass="w-full mt-4" 
+      severity="info"
+      [outlined]="true">
+    </p-button>
+
+  </form>
+</div>

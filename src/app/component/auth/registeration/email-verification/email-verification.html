@@ -1,0 +1,19 @@
+<div>
+  <h2 class="font-bold text-xl">Create Account</h2>
+  <form (ngSubmit)="submit()">
+    <div class="mb-4">
+      <label class="block text-sm mb-1">Email</label>
+      <input class="w-full" type="email" pInputText [formField]="emailValidationForm.email"
+        placeholder="user@example.com" />
+    </div>
+
+    <div class="w-full">
+      <p-button type="submit" label="Next" iconPos="right" icon="pi pi-chevron-right" variant="outlined" severity="info"
+        styleClass="w-full" />
+    </div>
+    <p class="text-center text-sm mt-4">
+      Already have an account?
+      <a href="#" class="text-blue-600">Login</a>
+    </p>
+  </form>
+</div>
